@@ -32,11 +32,10 @@ public class CurrencyRateServiceImpl implements CurrencyRateService{
 
     private List<CurrencyRateBank> getBankList(String value) {
         Type itemsListType = new TypeToken<List<CurrencyRateBankImpl>>() {}.getType();
-        List<CurrencyRateBank> currencyRateBankList = new Gson().fromJson(value, itemsListType);
-        return currencyRateBankList;
+        return new Gson().fromJson(value, itemsListType);
     }
 
-    private List<CurrencyRateBank> getCurrencyRates() throws MalformedURLException, IOException {
+    private List<CurrencyRateBank> getCurrencyRates() throws IOException {
 
         int responseCode = 0;
         StringBuffer response = new StringBuffer();
@@ -88,11 +87,6 @@ public class CurrencyRateServiceImpl implements CurrencyRateService{
             ErrorResponse response = new ErrorResponse("error get data!");
             return new Gson().toJson(response);
         }
-    }
-
-    @Override
-    public String getCurrencyRateBank(String codeStr) {
-        return null;
     }
 
     @Override

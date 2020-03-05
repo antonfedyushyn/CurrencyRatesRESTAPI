@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface CurrencyRateService {
     String getCurrencyRateBank();
-    String getCurrencyRateBank(String codeStr);
     String getCurrencyRateResponse();
     String getCurrencyRateResponse(String codeStr);
 }
